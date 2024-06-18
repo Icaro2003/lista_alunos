@@ -1,1 +1,2 @@
-# lista_alunos
+# Lista Alunos
+Exercício lista de alunos
