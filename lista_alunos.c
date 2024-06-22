@@ -24,7 +24,7 @@ Lista *criaListaAlunos(int tamanhoLista)
             if (novaLista->alunos == NULL)
             {
                 printf("Não existem alunos para a lista!\n");
-                free(novaLista);
+                liberaLista(novaLista);
                 exit(1);
             }
 
@@ -47,6 +47,7 @@ void liberaLista(Lista *l)
 {
     if (l != NULL)
     {
+        free(l->alunos);
         free(l);
     }
     else
@@ -108,4 +109,94 @@ int listaVazia(Lista *l)
     }
 }
 
+void insereAlunoInicio(Lista *l, Aluno *a)
+{
+    if (l != NULL && a != NULL)
+    {
+        int matriculaExistente = 0, i;
+
+        if (l->quantidade < l->tamanho)
+        {
+            for (i = 0; i < l->quantidade; i++)
+            {
+                if (acessaMatricula(l->alunos[i]) == acessaMatricula(a))
+                {
+                    matriculaExistente = 1;
+                    break;
+                }
+            }
+
+            for (i = l->quantidade; i > 0; i--)
+            {
+                l->alunos[i] = l->alunos[i - 1];
+            }
+
+            if (matriculaExistente == 0)
+            {
+                l->alunos[0] = a;
+                l->quantidade++;
+            }
+            else
+            {
+                printf("Matrícula já existente\nNão é possível inserir no início\n");
+            }
+        }
+        else
+        {
+            printf("Passou do limite da lista!\n");
+        }
+    }
+    else
+    {
+        printf("Memória insuficiente para inserir aluno no início");
+    }
+}
+
+void insereAlunoFinal(Lista *l, Aluno *a)
+{
+    if (l != NULL && a != NULL)
+    {
+        int matriculaExistente = 0, i;
+
+        for (i = 0; i < l->quantidade; i++)
+        {
+            if (acessaMatricula(l->alunos[i]) == acessaMatricula(a))
+            {
+                matriculaExistente = 1;
+                break;
+            }
+        }
+        
+        if (matriculaExistente == 0)
+        {
+            l->alunos[l->quantidade] = a;
+            l->quantidade++;
+        }
+        else
+        {
+            printf("Matrícula já existente\nNão é possível inserir no final\n");
+        }
+        
+    }
+    else
+    {
+        printf("Memória insuficiente para inserir aluno no final da lista!\n");
+    }
+}
+
 // Mais funções em lista_alunos.h...
+
+void imprimeAlunos(Lista *l)
+{
+    if (l != NULL)
+    {
+        for (int i = 0; i < l->quantidade; i++)
+        {
+            mostraAluno(l->alunos[i]);
+        }
+    }
+    else
+    {
+        printf("Memória insuficiente para imprimir alunos!\n");
+    }
+}

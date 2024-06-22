@@ -7,7 +7,6 @@ typedef struct lista Lista;
 
 Lista *criaListaAlunos(int tamanho_lista);
 void liberaLista(Lista *l);
-void liberaLista(Lista *l);
 int tamanhoLista(Lista *l);
 int listaCheia(Lista *l);
 int listaVazia(Lista *l);
