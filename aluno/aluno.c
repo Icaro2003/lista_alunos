@@ -116,7 +116,7 @@ void mostraAluno(Aluno *a)
     }
     else
     {
-        printf("Aluno invalido!\n");
+        printf("Aluno inválido!\n");
     }
 }
 

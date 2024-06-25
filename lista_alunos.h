@@ -22,5 +22,6 @@ void imprimeAlunos(Lista* l);
 void apagaLista(Lista* l);
 float maiorNota(Lista* l);
 float menorNota(Lista* l);
+float mediaNotas(Lista* l);
 
 #endif
