@@ -250,7 +250,7 @@ void modificaAluno(Lista *l, int i, Aluno *a)
                 }
                 else
                 {
-                    printf("\nMatrícula já existente!\nNão é possível modificar!\n");
+                    printf("Matrícula já existente!\nNão é possível modificar!\n");
                 }
             }
             else
@@ -370,6 +370,11 @@ void imprimeAlunos(Lista *l)
 {
     if (l != NULL)
     {
+        if (listaVazia(l) == 1)
+        {
+            printf("Lista vazia!\n");
+        }
+
         for (int i = 0; i < l->quantidade; i++)
         {
             consultaPosicao(l, i);

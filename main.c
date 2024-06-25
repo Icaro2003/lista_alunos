@@ -33,25 +33,28 @@ int main()
     insereAlunoFinal(listaAlunos, aluno3);
     insereAlunoFinal(listaAlunos, aluno4);
 
-    // insereAlunoFinal(listaAlunos, aluno5);
+    imprimeAlunos(listaAlunos);
 
-    // removeAlunoInicio(listaAlunos);
-    // removeAlunoFinal(listaAlunos);
+    printf("\nPosição da matrícula: %d\n\n", buscaPorMatricula(listaAlunos, matricula4));
 
-    // modificaAluno(listaAlunos, 0, aluno1);
-
-    // removeAluno(listaAlunos, aluno1);
+    modificaAluno(listaAlunos, 0, aluno1);
 
     imprimeAlunos(listaAlunos);
 
-    printf("Posição da matrícula: %d\n", buscaPorMatricula(listaAlunos, matricula4));
+    printf("\nMaior nota: %.2f\n", maiorNota(listaAlunos));
+    printf("Menor nota: %.2f\n", menorNota(listaAlunos));
+    printf("Média: %.2f\n\n", mediaNotas(listaAlunos));
 
-    // apagaLista(listaAlunos);
-    // imprimeAlunos(listaAlunos);
+    removeAluno(listaAlunos, aluno1);
+    removeAlunoInicio(listaAlunos);
+    removeAlunoFinal(listaAlunos);
 
-    // printf("Maior nota: %.2f\n", maiorNota(listaAlunos));
-    // printf("Menor nota: %.2f\n", menorNota(listaAlunos));
-    // printf("Média: %.2f\n", mediaNotas(listaAlunos));
+    imprimeAlunos(listaAlunos);
+
+    printf("\n");
+
+    apagaLista(listaAlunos);
+    imprimeAlunos(listaAlunos);
 
     liberaLista(listaAlunos);
     liberaAluno(aluno1);
